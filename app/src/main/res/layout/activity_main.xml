@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Spinner
+        android:id="@+id/roundsSpinner"
+        android:layout_width="117dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="75dp"
+        android:entries="@array/rounds"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/timelbl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roundslbl" />
+
+    <TextView
+        android:id="@+id/roundslbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="105dp"
+        android:layout_marginBottom="11dp"
+        android:text="Enter the number of rounds"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/roundsSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/nextPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="283dp"
+        android:layout_marginBottom="40dp"
+        android:onClick="NextPage"
+        android:text="next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roundsSpinner"
+        app:layout_constraintVertical_bias="0.635" />
+
+    <TextView
+        android:id="@+id/timelbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="69dp"
+        android:text="Enter the time of each round"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roundsSpinner" />
+
+    <Spinner
+        android:id="@+id/timeSpinner"
+        android:layout_width="108dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="70dp"
+        android:entries="@array/times"
+        app:layout_constraintBottom_toTopOf="@+id/restlbl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timelbl" />
+
+    <TextView
+        android:id="@+id/restlbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="Enter the length of the rest periods"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeSpinner" />
+
+    <Spinner
+        android:id="@+id/restSpinner"
+        android:layout_width="109dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="7dp"
+        android:entries="@array/rest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restlbl" />
+</androidx.constraintlayout.widget.ConstraintLayout>
