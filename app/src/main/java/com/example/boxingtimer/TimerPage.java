@@ -20,6 +20,7 @@ public class TimerPage extends MainActivity {
     private Button countdownButton;
     private CountDownTimer countDownTimer;
     private CountDownTimer restTimer;
+    private TextView statusLbl;
 
     private long timeLeft;
     private boolean timerRunning;
@@ -44,6 +45,8 @@ public class TimerPage extends MainActivity {
         //timer stuff
         countdownText = findViewById(R.id.countdownText);
         countdownButton = findViewById(R.id.countdownButton);
+        statusLbl = findViewById(R.id.statusLbl);
+
         countdownButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,12 +126,16 @@ public class TimerPage extends MainActivity {
         if (timerRunning){
             stopTimer();
         }
-        else{
+        else if (change){
             startTimer();
+        }
+        else{
+            setRestTimer();
         }
     }
     
     public void startTimer(){
+        statusLbl.setText("BOX");
         countDownTimer = new CountDownTimer(timeLeft, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -152,7 +159,8 @@ public class TimerPage extends MainActivity {
     }
 
     public void setRestTimer(){
-        change = !change;
+        statusLbl.setText("REST");
+        change = false;
 
         restTimer = new CountDownTimer(restLeft,1000) {
             @Override
@@ -165,14 +173,21 @@ public class TimerPage extends MainActivity {
             public void onFinish() {
                 playSound();
                 restLeft = lenRest;
-                change = !change;
+                change = true;
                 startTimer();
             }
         }.start();
+
+        timerRunning = true;
+        countdownButton.setText("STOP");
     }
 
     public void stopTimer(){
-        countDownTimer.cancel();
+        if (change) {
+            countDownTimer.cancel();
+        } else {
+            restTimer.cancel();
+        }
         timerRunning = false;
         countdownButton.setText("START");
     }
