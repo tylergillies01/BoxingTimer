@@ -1,5 +1,6 @@
 package com.example.boxingtimer;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         // GETS THE SPINNERS SET UP FOR JAVA AND DOES THE ITEMSELECTED
         Spinner roundsSpinner = findViewById(R.id.roundsSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.rounds, android.R.layout.simple_spinner_item);
